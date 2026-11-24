@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.6rem;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-rb-bg font-body text-rb-cream antialiased;
+    overflow-x: hidden;
+  }
+  /* neon night-market ambient glow (orange + jade) */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(1000px 650px at 82% -8%, rgba(255, 106, 26, 0.18), transparent 55%),
+      radial-gradient(850px 600px at -5% 106%, rgba(22, 214, 164, 0.1), transparent 55%),
+      #0a0a0b;
+  }
+}
+
+@layer components {
+  .rb-btn {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-br from-rb-red to-rb-red-deep px-7 py-3.5 font-display text-base uppercase text-white shadow-[0_8px_30px_-6px_rgba(255,106,26,.6)] transition-transform duration-200 hover:-translate-y-0.5;
+  }
+  .rb-btn-jade {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-br from-rb-gold-light to-rb-gold px-7 py-3.5 font-display text-base uppercase text-rb-bg shadow-[0_8px_30px_-6px_rgba(22,214,164,.6)] transition-transform duration-200 hover:-translate-y-0.5;
+  }
+  .rb-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-rb-gold/40 px-6 py-3 font-display text-base uppercase text-rb-gold transition-colors duration-200 hover:bg-rb-gold hover:text-rb-bg;
+  }
+  .rb-sheen {
+    @apply pointer-events-none absolute left-0 top-0 h-full w-2/5 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-shine;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
